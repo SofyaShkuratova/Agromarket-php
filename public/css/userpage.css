@@ -1,0 +1,12 @@
+.user_room {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.user_room .col {
+  border: 1px solid #000;
+  padding: 20px;
+  margin: 0 1rem;
+  border-radius: 20px;
+}

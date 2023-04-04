@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "agromarket\\": "vendor/agromarket/core",
+            "app\\": "app"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sofya Shkuratava",
+            "email": "sofya.shkuratava@gmail.com"
+        }
+    ],
+    "require": {}
+}

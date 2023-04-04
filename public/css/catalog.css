@@ -1,0 +1,114 @@
+.catalog {
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.box_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.box_card .sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.box_card .card_catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: row;
+      -ms-flex-pack: row;
+          justify-content: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.sort_par {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sort_par form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.card_catalog {
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: #F8F8F8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #E6EDED;
+  width: 260px;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-right: 0.3rem;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0px 4px 11px rgba(13, 74, 74, 0.2);
+          box-shadow: 0px 4px 11px rgba(13, 74, 74, 0.2);
+}
+
+.card img {
+  width: 186px;
+}
+
+.placeholder__nav form {
+  display: inline;
+  display: relative;
+}
+
+.placeholder__nav form input[type=text] {
+  float: left;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 10px 0px 0 10px;
+  border: 1px solid rgba(13, 74, 74, 0.2);
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.placeholder__nav form input[type=submit] {
+  float: right;
+  padding: 10px 15px;
+  margin-left: 0px;
+  font-size: 1rem;
+  background: #0D4A4A;
+  border: 1px solid rgba(13, 74, 74, 0.2);
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  color: #ffffff;
+}
