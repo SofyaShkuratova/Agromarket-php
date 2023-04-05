@@ -15,8 +15,8 @@ session_start();
 require 'partials/header.php';
     ?>
     <main>
-        <h2 style="text-align:center">Ваше избранное</h2>
-<section id="products">
+    <h2 style="text-align:center">Ваше избранное</h2>
+    <section id="products">
     <div class="product_cards">
     <?php 
     

@@ -43,31 +43,40 @@ if(isset($_POST['submit'])){
         </tr>
 
         <?php
+        $pr_id = '';
+        // var_dump(($_SESSION['cart']));
         if(isset($_SESSION["id_user"])) {
             if(isset($_SESSION['cart'])) {
                 $sql="SELECT * FROM products WHERE id_product IN (";
-      
-              foreach($_SESSION['cart'] as $id => $value) {
-                  $sql.=$id.",";
-              }
-      
-              $sql=substr($sql, 0, -1).") ORDER BY 'title_product' ASC";
-              $query=mysqli_query($link,$sql) or die("Ошибка выполнения запроса" . mysqli_error($link));
-              $totalprice = 0;
-              while($row=mysqli_fetch_array($query)){
-                  $subtotal=$_SESSION['cart'][$row['id_product']]['quantity']*$row['price'];
-                  $totalprice+=$subtotal;
-                  ?>
-                  <tr>
-                      <td><?php echo $row['title_product'] ?></td>
-                      <td><input type="text" name="quantity[<?php echo $row['id_product'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$row['id_product']]['quantity'] ?>" /></td>
-                      <td><?php echo $row['price'] ?> BYN</td>
-                      <td><?php echo $_SESSION['cart'][$row['id_product']]['quantity']*$row['price'] ?> BYN</td>
-                  </tr>
-                  <?php
-              }
+        
+                foreach($_SESSION['cart'] as $id => $value) {
+                    $sql.=$id.",";
+                }
+        
+                $sql=substr($sql, 0, -1).") ORDER BY 'title_product' ASC";
+                $query=mysqli_query($link,$sql);
+
+                // $query = mysqli_query($link,$sql);
+                // var_dump(mysqli_error($query));
+
                 
-              } 
+                    $totalprice = 0;
+                    while($row=mysqli_fetch_array($query)){
+                        $subtotal=$_SESSION['cart'][$row['id_product']]['quantity']*$row['price'];
+                        $pr_id .= $row['id_product']." ";
+                        $stroke .= $row['title_product']." "; 
+                        $totalprice+=$subtotal;
+                        ?>
+                        <tr>
+                            <td><?php echo $row['title_product'] ?></td>
+                            <td><input type="text" name="quantity[<?php echo $row['id_product'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$row['id_product']]['quantity'] ?>" /></td>
+                            <td><?php echo $row['price'] ?> BYN</td>
+                            <td><?php echo $_SESSION['cart'][$row['id_product']]['quantity']*$row['price'] ?> BYN</td>
+                        </tr>
+                        <?php
+                        }
+                
+            } 
         } else {
             echo "<h2 style='text-align:center'>Пользователь не авторизирован!</h2>";
         }
@@ -79,16 +88,34 @@ if(isset($_POST['submit'])){
         </tr>
 
     </table>
-    
-    <button class="button-submit" type="submit" name="submit">Перезагрузить корзину</button>
 </form>
-<!-- <p>Чтобы удалить продукт, введите 0 в количество </p> -->
+<form action="cart.php" method="POST">
+    <button class="button-submit" type="submit" name="order">Оформить заказ</button>
+</form>
+
+<?php
+if(isset($_POST['order'])){
+   
+    $num_ord = rand(100, 999);
+    $Ordquery = "INSERT INTO `orders` (`number_ord`, `id_user`, `id_product`, `status`) VALUES ('{$num_ord}', '{$_SESSION["id_user"]}', '{$pr_id}', 'done')";
+    $Ordresult=mysqli_query($link,$Ordquery);
+
+    if($Ordresult) {
+        $_SESSION['cart'][$row['id_product']]['quantity'] = 0;
+        print "<script language='Javascript' type='text/javascript'>
+                        alert(`Вы оформили заказ!`);
+                        function reload(){top.location = 'cart.php'};
+                        reload();
+                        </script>";
+    } else {
+        echo 'Корзина пуста';
+    }
+    
+} else {
+    // echo "Нажмите на кнопку чтобы оформить заказ";
+}
+?>
 </main>
-<section class="comment">
-    <h2>Комментарии продукта</h2>
-</section>
-
-
 
 <?php include 'partials/footer.php'?>
 </body>

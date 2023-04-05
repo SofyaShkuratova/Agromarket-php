@@ -10,14 +10,14 @@
         if($favResult->num_rows > 0) {
             echo json_encode(['flag'=>false, 'msg' => 'такой товар уже есть']);
         } else {
-            echo json_encode(['flag'=>true]);
+            echo json_encode(['flag'=>true, 'msg' => 'Товар успешно добавлен'] );
             $addQuery = "INSERT INTO `favorites` (`id_product`, `id_user`) VALUES ('{$_POST['id_product']}', '{$_SESSION['id_user']}')";
             $addResult = mysqli_query($link, $addQuery) or die("Ошибка выполнения запроса" . mysqli_error($link));
         }
        
     }
     else{
-        echo json_encode(['flag'=>false, 'msg' => 'not auth']);
+        echo json_encode(['flag'=>false, 'msg' => 'Пользователь не авторизован']);
     }
 
 ?>

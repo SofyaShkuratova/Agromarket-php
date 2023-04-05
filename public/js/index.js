@@ -10,9 +10,8 @@ document.querySelectorAll('.favorite_form').forEach((el) => {
         let resultParse = await result.json();
         
         if(!resultParse.flag)
-            console.log(resultParse.msg);
+            alert(resultParse.msg);
         else
-            
-            console.log(resultParse);
+            alert(resultParse.msg);
     }
 })
