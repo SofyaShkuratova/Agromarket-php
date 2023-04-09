@@ -1,27 +1,3 @@
-<?php
-session_start();
-include 'database/db.php';
-
-if(isset($_GET['page'])){
-    $pages=array("products", "cart");
-        if(in_array($_GET['page'], $pages)) {
-            $_page=$_GET['page'];
-        }else{
-            $_page="products";
-        }
-}else{
-    $_page="products";
-}
-
-if(isset($message)){
-    echo "<h2>$message</h2>";
-}
-
-$menuQuery =  "SELECT title_category FROM categories";
-$menuResult = mysqli_query($link, $menuQuery) or die("Ошибка выполнения запроса" . mysqli_error($link));
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,10 +7,10 @@ $menuResult = mysqli_query($link, $menuQuery) or die("Ошибка выполн�
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>non-auth</title>
+    <title>Agromarket</title>
 </head>
 <body>
-<?php
+    <?php
 //    require_once dirname(__DIR__) . '/config/init.php';
 //    require LIBS . '/functions.php';
 
@@ -44,14 +20,37 @@ $menuResult = mysqli_query($link, $menuQuery) or die("Ошибка выполн�
 
 //    debug(\agromarket\App::$app->getProperties());
 //    throw new Exception("Страница не найден", 404);
-?>
-<div class="pre__header"></div>
+
+
+    session_start();
+    // require 'partials/header.php' ;
+    include 'database/db.php';
+
+    if(isset($_GET['page'])){
+        $pages=array("products", "cart");
+            if(in_array($_GET['page'], $pages)) {
+                $_page=$_GET['page'];
+            }else{
+                $_page="products";
+            }
+    }else{
+        $_page="products";
+    }
+    ?>
+    
+    <div class="pre__header"></div>
 <header>
     <div class="nav">
         <div class="icon__nav">
             <a href="index.php"><img src="img/logo.svg" class="logo" alt="logo" width="45px"></a>
         </div>
         <div class="placeholder__nav">
+            <!-- <form action="catalog.php" method="post">
+                <input type="text" placeholder="Поиск товаров" name="search-val" id="search">
+                
+                <input type="hidden" name="go-search" value="5">
+                <input type="submit" value="Поиск" name="search">
+            </form> -->
         </div>
         <div class="but__container">
             <a href="favorite.php" class="p__text button__nav">
@@ -97,7 +96,9 @@ $menuResult = mysqli_query($link, $menuQuery) or die("Ошибка выполн�
             Каталог товаров
         </a>
         <?php
-            
+            if(isset($message)){
+                echo "<h2>$message</h2>";
+            }
         ?>
         <div class="nav__main__menu">
             <ul>
@@ -114,6 +115,9 @@ $menuResult = mysqli_query($link, $menuQuery) or die("Ошибка выполн�
         <div class="slider-box">
             <div class="dynamic_nav">
                 <?php
+                $menuQuery =  "SELECT title_category FROM categories";
+                $menuResult = mysqli_query($link, $menuQuery) or die("Ошибка выполнения запроса" . mysqli_error($link));
+
                 while($row = $menuResult->fetch_assoc()) {
                     $title_category = $row['title_category'];
                     echo "<li><a href='catalog.php' class='list_categ'>$title_category</a></li>";
@@ -147,7 +151,6 @@ $menuResult = mysqli_query($link, $menuQuery) or die("Ошибка выполн�
             </div>
         </section>
     </main>
-    <?php require 'partials/footer.php'; ?>
     <script src="js/index.js"></script>
 </body>
 </html>

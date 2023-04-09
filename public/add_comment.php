@@ -11,6 +11,9 @@ if (empty($_POST['title'])) {
 if (empty($_POST['text'])) {
     $errors['text'] = 'Комментарий пуст';
 }
+if(empty($_POST['product_id'])){
+    $errors['product'] = 'ИД продукта пусто';
+}
 
 if(isset($_SESSION['id_user'])){
     if (!empty($errors)) {
@@ -18,7 +21,7 @@ if(isset($_SESSION['id_user'])){
     } else {
         $error = 0;
     
-        $query = "INSERT INTO `review` (`id_user`, `title_review`, `text_review`, `product_id`) VALUES ('{$_SESSION['id_user']}', '{$_POST['title']}', '{$_POST['text']}', '{$_POST['product_id']}')";
+        $query = "INSERT INTO `review` (`name_user`, `title_review`, `text_review`, `id_product`) VALUES ('{$_SESSION['full_name']}', '{$_POST['title']}', '{$_POST['text']}', '{$_POST['product_id']}')";
         $result = mysqli_query($link, $query) or die("Ошибка выполнения запроса" . mysqli_error($link));
     }
 } else {

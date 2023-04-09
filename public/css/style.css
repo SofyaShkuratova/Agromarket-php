@@ -124,6 +124,7 @@ header {
 }
 
 .container {
+  width: 30%;
   margin-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -458,10 +459,6 @@ section .product_cards .card {
   margin-bottom: 20px;
 }
 
-section .product_cards .card a:hover {
-  color: #0D4A4A;
-}
-
 section .product_cards .card:hover {
   -webkit-box-shadow: 0px 4px 11px rgba(13, 74, 74, 0.2);
           box-shadow: 0px 4px 11px rgba(13, 74, 74, 0.2);
@@ -493,7 +490,7 @@ h4 {
   margin: 0.2rem 0;
 }
 
-input.cards_but {
+.cards_but {
   font-weight: 700;
   font-size: 1rem;
   padding: 1rem;
@@ -530,4 +527,46 @@ footer {
 
 .user_room {
   margin-bottom: 2rem;
+}
+
+.authref {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.authref:hover {
+  color: #0D4A4A;
+}
+
+span.error {
+  font-size: 13px;
+  word-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.relink {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.relink a {
+  color: #0D4A4A;
+}
+
+.relink a:hover {
+  text-decoration: underline;
+}
+
+.login-container {
+  margin-bottom: 3rem;
 }

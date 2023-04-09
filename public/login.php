@@ -136,10 +136,7 @@ function clearString($str)
         <div class="icon__nav">
             <a href="index.php"><img src="img/logo.svg" class="logo" alt="logo" width="45px"></a>
         </div>
-        <!-- <div class="placeholder__nav">
-            <input type="text" placeholder="Поиск товаров" name="search" id="search">
-            <button type="submit"><img src="img/icon-search.svg" alt=""></button>
-        </div> -->
+        
         <div class="but__container">
             <a href="favorite.php" class="p__text button__nav">
                 <svg class="svg-icon" width="19" height="17" viewBox="0 0 19 17" xmlns="http://www.w3.org/2000/svg">
@@ -195,15 +192,15 @@ function clearString($str)
                     <span class="error"><?= @$secondPasswordError; ?></span>
 
                     <input type="hidden" name="go-auth" value="5">
-                    <input type="submit" name="submit" class="button-submit" value="Войти">
+                    <input type="submit" name="submit-auth" class="button-submit" value="Войти">
                 </form>
             </div>
-            <form action="registration.php" method="post" class="reg-form">
-                Ещё не зарегестрированы?<input class="registrate-input" type="submit" name="submit" value="Зарегистрироваться">
-            </form>
+            <div class="relink">
+                Ещё не зарегестрированы?
+                <a class="" href='registration.php'> Зарегестрироваться</a>
+            </div>
         </div>
     </section>
-    
+    <?php require 'partials/footer.php'; ?>
 </body>
-
 </html>

@@ -1,4 +1,3 @@
-
 <?php 
 session_start();
 include 'database/db.php';
@@ -34,20 +33,15 @@ while ($row = mysqli_fetch_assoc($cardResult)) {
     echo '<p>' . $row['description'] . '</p>';
     echo '<h4>' . $row['price'] . ' BYN</h4>'; 
     $product = $row['id_product'];?>
-    <!-- echo '<a href="category.php" class="button-submit ">
-    Добавить в корзину
-    </a>'; -->
-    <form method="post" action="orders.php">
-        <!-- <input type="submit" name="add_favorites" value="Добавить в корзину" class="button__nav cards_but acent__but"> -->
-    </form>
+    
     <form class="favorite_form">
         <input type="hidden" name="id_product" value="<?php echo $product ?>">
         <input type="submit" name="add_favorites" value="Добавить в избранное"
         class=" button__nav cards_but">
     </form>
-    <a href="index.php?page=products&action=add&id=<?php echo $row['id_product'] ?>">Add to cart</a>
-    <a href="product.php?id=<?php echo $product['id_product']; ?>">View Product</a>
-    <a href="cart.php">Go to cart</a>
+    <a class="favorite_form button__nav cards_but" href="index.php?page=products&action=add&id=<?php echo $row['id_product'] ?>">Добавить в корзину</a>
+    <a class="authref" href="product.php?id=<?php echo $product['id_product']; ?>">Посмотреть продукт</a>
+    <a class="authref" href="cart.php">Перейти в корзину</a>
     <?php
     echo '</div>';
 }

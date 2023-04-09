@@ -101,6 +101,7 @@ header
     justify-content: center
 
 .container
+    width: 30%
     margin-top: 2rem
     display: flex
     flex-direction: column
@@ -304,7 +305,7 @@ section
             margin-bottom: 20px
 
             a:hover 
-                color: $main-color
+                // color: $main-color
 
             &:hover
                 box-shadow: 0px 4px 11px rgba(13, 74, 74, 0.2)
@@ -329,7 +330,7 @@ h4
     color: #363636
     margin: 0.2rem 0
 
-input.cards_but
+.cards_but
     font-weight: 700
     font-size: 1rem
     padding: 1rem
@@ -353,3 +354,27 @@ footer
 
 .user_room 
     margin-bottom: 2rem
+
+.authref
+    display: flex
+    justify-content: center
+    &:hover
+        color: $main-color
+
+span.error
+    font-size: 13px
+    word-wrap: wrap
+    display: flex
+    // width: 50%
+
+.relink
+    margin-top: 1rem
+    display: flex
+    align-content: center
+    a
+        color: $main-color
+        &:hover
+            text-decoration: underline
+
+.login-container
+    margin-bottom: 3rem
