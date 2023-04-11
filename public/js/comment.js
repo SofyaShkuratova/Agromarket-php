@@ -39,7 +39,7 @@ $(document).ready(function () {
             success: function(data) {
                 console.log(data);
                 if(data.error === 1){
-                    alert("Запольните все поля!");
+                    alert("Заполните все поля!");
                 } else if(data.error === 0) {
                     alert("Комментарий добавлен!");
                     load_comment();

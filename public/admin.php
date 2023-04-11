@@ -1,6 +1,14 @@
 <?php
 session_start();
 include 'database/db.php';
+function clearString($str) {
+    $str = trim($str);
+    $str = strip_tags($str);
+    $str = stripslashes($str);
+
+    return $str;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -35,13 +43,6 @@ include 'database/db.php';
             <b>Ваше имя:</b> <?= $_SESSION['full_name']?>
             <br><b>Список пользователей:</b>
             <?php
-            function clearString($str) {
-                $str = trim($str);
-                $str = strip_tags($str);
-                $str = stripslashes($str);
-            
-                return $str;
-            }
 
             $usersListQuery = "SELECT * FROM users";
             $usersListResult = mysqli_query($link, $usersListQuery) or die("Ошибка выполнения запроса" . mysqli_error($link));
@@ -193,8 +194,6 @@ include 'database/db.php';
 
                 if($nameTov == ''){
                     $nameTovarerror .= "Заполните поле.";
-                } else if(!preg_match('/^\w{1,31}$/ui', $nameTov)) {
-                    $nameTovarerror .= "Введеное наименование не соответствует требованиям";
                 }
 
                 //Категория

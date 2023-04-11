@@ -5,7 +5,6 @@ require 'partials/header.php';
 
 $product_id = $_GET['id'];
 $user_id = $_SESSION['id_user'];
-// var_dump($product_id);
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -13,11 +12,6 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($link, $query);
     $product = mysqli_fetch_assoc($result);
 }
-
-// $commentQuery = "SELECT name_user, title_review, text_review FROM review  WHERE id_product={$product_id}";
-// $commentResult = mysqli_query($link, $commentQuery) or die("Ошибка выполнения запроса " . mysqli_error($link));
-// $rowCount = $commentResult->num_rows;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,21 +88,6 @@ if ($product) {
         <h2 style="text-align:center">Комментарии пользователей</h2>
         <span  id="comment_message"></span>
         <div id="display_comment"></div>
-<?php
-// if($rowCount > 0) {
-//     while($row = mysqli_fetch_assoc($commentResult)) {
-//     echo "<div class='row'>";
-//     echo "<h4>" . $row['title_review'] . "</h4>";
-//     echo "<p>" . $row['text_review'] .  "</p>";
-//     echo "<p style='margin-top:10px'>Пользователь: " .$row['full_name'] ."</p>";
-//     echo "</div>";
-//     }
-//     $link->close(); 
-// } else {
-//     echo "Комментарии товара отсутствуют";
-// }
-?> 
-        
     </section>
     <?php require 'partials/footer.php' ?>
     <script src="js/comment.js"></script>

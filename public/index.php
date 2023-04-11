@@ -20,6 +20,15 @@ if(isset($message)){
 $menuQuery =  "SELECT title_category FROM categories";
 $menuResult = mysqli_query($link, $menuQuery) or die("Ошибка выполнения запроса" . mysqli_error($link));
 
+//    require_once dirname(__DIR__) . '/config/init.php';
+//    require LIBS . '/functions.php';
+
+//    new \agromarket\App();
+
+//    \agromarket\App::$app->setProperty('test','TEST');
+
+//    debug(\agromarket\App::$app->getProperties());
+//    throw new Exception("Страница не найден", 404);
 ?>
 
 <!DOCTYPE html>
@@ -34,17 +43,6 @@ $menuResult = mysqli_query($link, $menuQuery) or die("Ошибка выполн�
     <title>non-auth</title>
 </head>
 <body>
-<?php
-//    require_once dirname(__DIR__) . '/config/init.php';
-//    require LIBS . '/functions.php';
-
-//    new \agromarket\App();
-
-//    \agromarket\App::$app->setProperty('test','TEST');
-
-//    debug(\agromarket\App::$app->getProperties());
-//    throw new Exception("Страница не найден", 404);
-?>
 <div class="pre__header"></div>
 <header>
     <div class="nav">

@@ -14,7 +14,7 @@ if(empty($_POST['product_id'])) {
 
 
 if($rowCount > 0) {
-    // echo "Cюда тоже";
+    
     while($row = mysqli_fetch_assoc($commentResult)) {
     echo "<div class='row'>";
     echo "<h4>" . $row['title_review'] . "</h4>";

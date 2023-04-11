@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,8 +44,6 @@ require 'partials/header.php';
                 echo '</div>';
             }
         }
-        
-
     } else {
         echo "<h2 style='text-align:center'>Пользователь не зашел в личный кабинет</h2>";
     }

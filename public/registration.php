@@ -14,7 +14,7 @@ function clearString($str) {
         //ФИО
         $nameError = '';
         $name = $_POST["name"];
-        // clearString($name);
+        clearString($name);
     
         if($name == '') {
             echo $nameError .= "Заполните поле. ";
@@ -49,7 +49,7 @@ function clearString($str) {
     
         $firstPasswordError = '';
             $firstPassword = $_POST["first-password"]; 
-            // clearString($firstPassword);
+            clearString($firstPassword);
     
             if($firstPassword == '') {
                 $firstPasswordError .= "Заполните поле";
@@ -60,7 +60,7 @@ function clearString($str) {
         //SECOND PASSWORD
         $secondPasswordError = '';
             $secondPassword = $_POST["second-password"];
-            // clearString($secondPassword);
+            clearString($secondPassword);
     
             if($secondPassword == '') {
                 $secondPasswordError .= "Заполните поле";
@@ -71,7 +71,7 @@ function clearString($str) {
         //PHONE
         $phoneError = '';
             $phone = $_POST["phone"]; 
-            // clearString($phone);
+            clearString($phone);
     
             if($phone == '' && empty($phone)) {
                 $phoneError .= "Заполните поле";
@@ -218,9 +218,9 @@ function clearString($str) {
                 <input type="hidden" name="go-reg" value="5">
                 <input type="submit" name="submit-reg" value="Зарегестрироваться" class="button-submit">
             </form>
-            <!-- <form action="login.php" method="post" class="reg-form"> -->
-                Уже есть свой аккаунт?<a href='login.php'>Войти</a>
-            <!-- </form> -->
+            
+            Уже есть свой аккаунт?<a href='login.php'>Войти</a>
+            
         </div>
     </div>
 </section>

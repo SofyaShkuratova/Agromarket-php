@@ -68,10 +68,8 @@ if (isset($_POST["go-auth"])) {
 
         $roleQuery = "SELECT id_role FROM users where login = '{$login}'";
         $roleResult = mysqli_query($link, $roleQuery) or die("Ошибка выполнения запроса" . mysqli_error($link));
-        
         $roleResult = mysqli_fetch_assoc($roleResult);
 
-        // var_dump($roleResult["id_role"]);
         $nameQuery = "SELECT id_user, full_name,login,phone FROM users WHERE login='$login'";
         $nameResult = mysqli_query($link, $nameQuery) or die("Ошибка выполнения запроса" . mysqli_error($link));
         

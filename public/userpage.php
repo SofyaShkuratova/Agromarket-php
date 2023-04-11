@@ -13,8 +13,7 @@ if(isset($_POST['go-login'])) {
     $query = "SELECT * FROM users WHERE login = '{$newlogin}'";
     $result = mysqli_query($link, $query) or die ("Ошибка выполнения запроса1" .mysqli_error($link));
     $rows = mysqli_num_rows($result);
-    // var_dump($result);
-    // var_dump($newlogin);
+    
     if(!preg_match('/^\w{5,31}$/u', $newlogin)) {
         $loginError .= "Не соответствует требованиям";
     } else {
@@ -24,7 +23,7 @@ if(isset($_POST['go-login'])) {
             if(!empty($row[0])) $loginError .="Данный логин занят";
         } else {
             $newloginQuery = "UPDATE users SET login ='{$newlogin}' WHERE id_user={$user_id}";
-            // var_dump($newloginQuery);
+            
             if (mysqli_query($link, $newloginQuery)) {
                 $_SESSION["login"] = $newlogin;
                 print "<script language='Javascript' type='text/javascript'>
@@ -36,9 +35,6 @@ if(isset($_POST['go-login'])) {
             }
         }
         
-        // var_dump(mysqli_fetch_row($result));
-        // echo "hello";
-
     }
 }
 
@@ -52,7 +48,7 @@ if(isset($_POST["phone"])) {
         $phoneError .= "Не соответствует требованиям";
     } else {
         if (mysqli_query($link, $newphoneQuery)) {
-            // echo "Login updated successfully.";
+
             $_SESSION["phone"] = $newphone;
             print "<script language='Javascript' type='text/javascript'>
                         function reload(){top.location = 'userpage.php'};
@@ -74,7 +70,7 @@ if(isset($_POST["name"])) {
         $nameError .= "Не соответствует требованиям";
     } else {
         if (mysqli_query($link, $newnameQuery)) {
-            // echo "Login updated successfully.";
+
             $_SESSION['full_name'] = $newname;
             print "<script language='Javascript' type='text/javascript'>
                         function reload(){top.location = 'userpage.php'};
@@ -107,10 +103,7 @@ if(isset($_POST["name"])) {
         <div class="icon__nav">
             <a href="index.php"><img src="img/logo.svg" class="logo" alt="logo" width="45px"></a>
         </div>
-        <!-- <div class="placeholder__nav">
-            <input type="text" placeholder="Поиск товаров" name="search" id="search">
-            <button type="submit"><img src="img/icon-search.svg" alt=""></button>
-        </div> -->
+        
         <div class="but__container">
             <a href="favorite.php" class="p__text button__nav">
                 <svg class="svg-icon" width="19" height="17" viewBox="0 0 19 17" xmlns="http://www.w3.org/2000/svg">
